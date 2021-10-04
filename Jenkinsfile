@@ -36,7 +36,7 @@ node {
 		    
 // 	      sh "sudo service docker stop"
 		    
-	      sh "sudo service docker start"
+// 	      sh "sudo service docker start"
 		    
 	      dockerImage = docker.build("docker-test:${env.BUILD_NUMBER}")
 	    }
