@@ -39,11 +39,11 @@ node {
 			
 	      echo "Docker Image Tag Name: ${dockerImageTag}"
 		  
-		  sh "docker stop docker-test"
+		    sh "${dockerHome}docker stop docker-test"
 		  
-		  sh "docker rm docker-test"
+		  sh "${dockerHome}docker rm docker-test"
 		  
-		    sh "docker run --restart=always --name docker-test -d -p 9011:9011 docker-test:${env.BUILD_NUMBER}"
+		    sh "${dockerHome}docker run --restart=always --name docker-test -d -p 9011:9011 docker-test:${env.BUILD_NUMBER}"
 		  
 		  // docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
 	      //    dockerImage.push("${env.BUILD_NUMBER}")
