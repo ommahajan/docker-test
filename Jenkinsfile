@@ -30,6 +30,9 @@ node {
 			
 	    stage('Build Docker Image') {
 	      // build docker image
+		    
+	      sh "ls -all /var/run/docker.sock"
+		    
 	      dockerImage = docker.build("docker-test:${env.BUILD_NUMBER}")
 	    }
 	   
@@ -39,11 +42,11 @@ node {
 			
 	      echo "Docker Image Tag Name: ${dockerImageTag}"
 		  
-		    sh "docker stop docker-test"
+		    sh "docker stop docker-test-api"
 		  
-		  sh "docker rm docker-test"
+		  sh "docker rm docker-test-api"
 		  
-		    sh "docker run --restart=always --name docker-test -d -p 9011:9011 docker-test:${env.BUILD_NUMBER}"
+		    sh "docker run --restart=always --name docker-test-api -d -p 9011:9011 docker-test:${env.BUILD_NUMBER}"
 		  
 		  // docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
 	      //    dockerImage.push("${env.BUILD_NUMBER}")
