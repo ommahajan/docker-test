@@ -12,7 +12,7 @@ node {
 	    
 	    stage('Clone Repo') { // for display purposes
 	      // Get some code from a GitHub repository
-	      git 'https://github.com/felipemeriga/DevOps-Example.git'
+	      git 'https://github.com/ommahajan/docker-test.git'
 	      // Get the Maven tool.
 	      // ** NOTE: This 'maven-3.8.2' Maven tool must be configured
 	      // **       in the global configuration.           
