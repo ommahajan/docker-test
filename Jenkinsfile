@@ -34,7 +34,9 @@ node {
 // 	     sh "whoami"
 //       		sh "ls -all /var/run/docker.sock"
 		    
-	      sh "sudo service docker stop && sudo service docker start"
+	      sh "sudo service docker stop"
+		    
+	      sh "sudo service docker start"
 		    
 	      dockerImage = docker.build("docker-test:${env.BUILD_NUMBER}")
 	    }
