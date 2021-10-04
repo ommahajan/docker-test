@@ -31,7 +31,7 @@ node {
 	    stage('Build Docker Image') {
 	      // build docker image
 		    
-	      sh "ls -all /var/run/docker.sock"
+	      // sh "ls -all /var/run/docker.sock"
 		    
 	      dockerImage = docker.build("docker-test:${env.BUILD_NUMBER}")
 	    }
