@@ -5,7 +5,7 @@ node {
 	
 	    def dockerHome = tool 'docker'
 	
-            // env.PATH = "${dockerHome}/bin:${env.PATH}"
+            env.PATH = "${dockerHome}/bin:${env.PATH}"
 	
 
 	    // holds reference to docker image
@@ -39,11 +39,11 @@ node {
 			
 	      echo "Docker Image Tag Name: ${dockerImageTag}"
 		  
-		    sh "${dockerHome}docker stop docker-test"
+		    sh "docker stop docker-test"
 		  
-		  sh "${dockerHome}docker rm docker-test"
+		  sh "docker rm docker-test"
 		  
-		    sh "${dockerHome}docker run --restart=always --name docker-test -d -p 9011:9011 docker-test:${env.BUILD_NUMBER}"
+		    sh "docker run --restart=always --name docker-test -d -p 9011:9011 docker-test:${env.BUILD_NUMBER}"
 		  
 		  // docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
 	      //    dockerImage.push("${env.BUILD_NUMBER}")
