@@ -39,7 +39,7 @@ node {
 		  
 		  sh "docker rm docker-test"
 		  
-		  sh "docker run --name docker-test -d -p 9011:9011 docker-test:${env.BUILD_NUMBER}"
+		  sh "docker run --name docker-test -d -p 9011:9011 docker-test:${env.BUILD_NUMBER} --restart=lways -v $(which docker):/usr/bin/docker"
 		  
 		  // docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
 	      //    dockerImage.push("${env.BUILD_NUMBER}")
